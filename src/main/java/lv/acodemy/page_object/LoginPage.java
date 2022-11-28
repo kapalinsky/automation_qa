@@ -14,7 +14,7 @@ public class LoginPage {
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
-
+    
     public void authorize(String login, String password) {
         driver.findElement(loginField).sendKeys(login);
         driver.findElement(passwordField).sendKeys(password);

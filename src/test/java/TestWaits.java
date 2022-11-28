@@ -18,18 +18,19 @@ public class TestWaits {
     @BeforeMethod
     public void before() {
         driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         // implicitly wait
-        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
         // wait for loading page
-        //driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
     @Test
     public void testWaiter() {
         driver.get(Generic.GOOGLE_URL);
+        // Explicit wait
         wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("element_that_is_not_in_place")));
-        //driver.findElement(By.xpath("element_that_is_not_in_place"));
+        driver.findElement(By.xpath("element_that_is_not_in_place"));
     }
 
     @AfterMethod
