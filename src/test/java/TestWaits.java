@@ -25,7 +25,7 @@ public class TestWaits {
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
     }
 
-    @Test
+    @Test(enabled = false)
     public void testWaiter() {
         driver.get(Generic.GOOGLE_URL);
         // Explicit wait
